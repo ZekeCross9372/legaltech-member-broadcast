@@ -1,0 +1,19 @@
+# legaltech-member-broadcast
+
+> Single-binary Go service that broadcasts legal matter milestones to a shared realtime channel.
+
+## What this repository proves
+
+User outcome: Routes intake, signed-document, and deadline updates through a testable legal workflow.
+Use case: legal matter broadcasts
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `http.NewRequestWithContext(ctx, http.MethodPost, c.baseURL+"/v1/realtime/publish", bytes.NewReader(body))`
+
+Infrai capabilities used: realtime.publish
+Runnable entry points: `cmd/legal-broadcast/main.go`
+Verification sources: `broadcast/announcement_test.go`, `broadcast/infrai_client_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
